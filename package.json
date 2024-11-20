@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "imersao_backend_alura",
   "version": "1.0.0",
-  "description": "",
+  "description": "Este repositório é dedicado a um projeto de estudos com o objetivo de reforçar os conceitos e o uso de backend. Atualmente, o projeto inclui:",
   "main": "index.js",
   "type": "module",
   "license": "AGPL-version-3.0",
@@ -17,15 +17,12 @@
   },
   "bugs": "",
   "keywords": [],
-  "author": {
-    "name": "",
-    "email": "",
-    "url": ""
-  },
+  "author": "",
   "contributors": [],
   "scripts": {
     "dev": "",
-    "test": ""
+    "test": "",
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.21.1"
