@@ -20,7 +20,7 @@
   "author": "",
   "contributors": [],
   "scripts": {
-    "dev": "",
+    "dev": "node --watch --env-file=.env server.js",
     "test": "",
     "start": "node server.js"
   },
