@@ -1,5 +1,6 @@
 import fs from "fs";
-import { getAllPosts, createPost } from "../models/models.js";
+import { getAllPosts, createPost, updatePost } from "../models/models.js";
+import generateDescriptionGemini from "../services/geminiService.js";
 
 export async function listPosts(req, res) {
   const posts = await getAllPosts();
@@ -33,3 +34,22 @@ export async function uploadImage(req, res) {
     res.status(500).json({ Erro: "Internal Server Error" });
   }
 };
+
+export async function updateNewPost(req, res) {
+  const id = req.params.id;
+  const urlImage = `http://localhost:3000/${id}.png`;  
+  try {
+    const imgBuffer = fs.readFileSync(`uploads/${id}.png`);
+    const descricao = await generateDescriptionGemini(imgBuffer);
+    const newpost = {
+      imgUrl: urlImage,
+      descricao: descricao,
+      alt: req.body.alt,
+    }
+    const post = await updatePost(id, newpost);
+    res.status(201).json(post);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ Erro: "Internal Server Error" });
+  }
+}
