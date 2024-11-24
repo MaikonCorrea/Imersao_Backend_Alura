@@ -3,7 +3,7 @@ import multer from "multer";
 import cors from "cors";
 
 const corsOptions = {
-    origin: "http://localhost:8000",
+    origin: ["http://localhost:8000", "https://imersaobackendalura.netlify.app"],
     optionsSuccessStatus: 200,
 };
 
